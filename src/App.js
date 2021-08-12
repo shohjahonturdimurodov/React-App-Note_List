@@ -26,6 +26,10 @@ function App() {
         }
         return item
       }))
+      setName('')
+      setEditId(null)
+      setIsEditing(false)
+      showAlert(true, "success", 'changed successfully')
     } else {
       showAlert(true, "success", 'note is added successfully')
       const newItem = { id: new Date().getTime().toString(), title: name };
