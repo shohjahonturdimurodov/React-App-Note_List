@@ -1,9 +1,9 @@
-import React from 'react'
-import { FaEdit, FaTrash } from 'react-icons/fa'
+import React from "react";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
-const List = ({ items }) => {
+const List = ({ items, removeItem }) => {
   return (
-    <div className="grocery-list" >
+    <div className="grocery-list">
       {items.map((item) => {
         const { id, title } = item;
         return (
@@ -11,10 +11,14 @@ const List = ({ items }) => {
             <p className="title">{title}</p>
             <div className="btn-container">
               <button type="button" className="edit-btn">
-                <FaEdit/>
+                <FaEdit />
               </button>
-              <button type="button" className="delete-btn">
-                <FaTrash/>
+              <button
+                onClick={() => removeItem(id)}
+                type="button"
+                className="delete-btn"
+              >
+                <FaTrash />
               </button>
             </div>
           </article>
@@ -24,4 +28,4 @@ const List = ({ items }) => {
   );
 };
 
-export default List
+export default List;

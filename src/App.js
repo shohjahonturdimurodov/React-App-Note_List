@@ -32,8 +32,13 @@ function App() {
     setAlert({show, type, msg})
   }
   const clearList = () => {
-    showAlert(true, "danger", "note removed")
+    showAlert(true, "danger", "notes are removed")
     setList([])
+  }
+
+  const removeItem = (id) => {
+    showAlert(true, "danger", "note is removed")
+    setList(list.filter((item) => item.id !== id))
   }
 
   return (
@@ -56,7 +61,7 @@ function App() {
       </form>
       {list.length > 0 && (
         <div className="grocery-container">
-          <List items={list} />
+          <List items={list} removeItem={removeItem}/>
           <button onClick={clearList} className="clear-btn">Clear</button>
         </div>
       )}
